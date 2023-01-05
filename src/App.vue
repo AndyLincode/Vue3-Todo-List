@@ -141,7 +141,7 @@ watch(todoItems, (newData) => {
           <img :src="todoItems[currentNum].image" alt="請上傳圖片" class="h-full w-full object-cover rounded-md">
         </div>
 
-        <div class="dateInput flex items-center md:w-[48%] w-full md:order-4 order-3 justify-center md:justify-start">
+        <div class="dateInput flex items-center md:w-[48%] w-full md:order-4 order-3 md:justify-start justify-around">
           <input type="date" class="start bg-[#EBEBEB] py-2 md:px-28 rounded-md px-3"
             v-model="todoItems[currentNum].startDate" @change="handleDateSelect" />
           <span class="md:mx-5 mx-2">~</span>
