@@ -87,29 +87,26 @@ watch(todoItems, (newData) => {
 
 <template>
   <div class="todoList flex">
-    <transition name="ease-out-overlay">
-      <div
-        class="sidebar md:w-[10%] w-[80%] z-10 h-screen bg-[#A1FFc7] md:block md:static absolute md:translate-x-0 transition-transform duration-500 md:transition-none"
-        :class="{
+    <div
+      class="sidebar md:w-[10%] w-[80%] z-10 h-screen bg-[#A1FFc7] md:block md:static absolute md:translate-x-0 transition-transform duration-500 md:transition-none"
+      :class="{
   'show': show
 }">
-        <div class="titleWrap ml-4 flex mt-1">
-          <p class=" text-base font-bold">Demo Todo List</p>
-          <i class="fa-solid fa-x ml-auto translate-x-[-10px] font-bold mt-1 md:hidden" @click="handleShow"> </i>
-        </div>
-        <div div class=" todoItems mt-3">
-          <!-- components -->
-          <div v-for="(item, i) in   todoItems" class="item flex pl-2 mt-1 bg-[#81F8B1] relative"
-            @click="handleClick(i)">
-            <TodoItem :title="item.title" :index="i" :sid="item.id" key="item.id" :currentNum="currentNum">
-            </TodoItem>
-          </div>
-        </div>
-        <div class="addBtn mt-3 flex justify-center" :class="{ hidden: todoItems.length >= 10 }">
-          <button class="bg-[#E7FFE9] py-1 px-5 w-[80%] rounded hover:bg-[#81F8B1]" @click="handleAdd">Add Item</button>
+      <div class="titleWrap ml-4 flex mt-1">
+        <p class=" text-base font-bold">Demo Todo List</p>
+        <i class="fa-solid fa-x ml-auto translate-x-[-10px] font-bold mt-1 md:hidden" @click="handleShow"> </i>
+      </div>
+      <div div class=" todoItems mt-3">
+        <!-- components -->
+        <div v-for="(item, i) in   todoItems" class="item flex pl-2 mt-1 bg-[#81F8B1] relative" @click="handleClick(i)">
+          <TodoItem :title="item.title" :index="i" :sid="item.id" key="item.id" :currentNum="currentNum">
+          </TodoItem>
         </div>
       </div>
-    </transition>
+      <div class="addBtn mt-3 flex justify-center" :class="{ hidden: todoItems.length >= 10 }">
+        <button class="bg-[#E7FFE9] py-1 px-5 w-[80%] rounded hover:bg-[#81F8B1]" @click="handleAdd">Add Item</button>
+      </div>
+    </div>
     <div class="w-full h-screen bg-[#0000005b] absolute z-[8]" :class="{ hidden: !show }" @click="handleShow"></div>
 
     <div class="content w-full flex flex-col p-3">
